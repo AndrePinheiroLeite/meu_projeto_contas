@@ -46,7 +46,7 @@ def listar_contas():#Caso se ecolha a opção 2, ele vai listar todas as contas 
         for conta in contas:
             print(f"ID: {conta[0]} | Devedor: {conta[1]} | Vencimento: {conta[2]} | Valor: R$ {conta[3]:.2f} | Status: {conta[4]}")
             valor_total += conta[3]#Aqui se faz a atribuição e somatoria
-    print(f"valor total = R$ {valor_total:.2f}")#A impressão do valor atualizado
+    print(f"valor total = R$ {valor_total:.2f}")#Aqui o valor se atualiza caso some ou diminua mais
     print("-" * 25)
 
 def atualizar_status(id_conta, novo_status):#Caso digite a opção 3, ele vai fazer um update(atualizar) 

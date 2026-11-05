@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3#Cria automaticamente o ficheiro da base de dados no teu computador se ele ainda não existir.
 
 def conectar():
     return sqlite3.connect("minhas_contas.db")
@@ -39,11 +39,13 @@ def listar_contas():#Caso se ecolha a opção 2, ele vai listar todas as contas 
     print("\n--- AS SUAS CONTAS ---")
 
     valor_total = 0.0 #criação da variavel para atualizar o valor
-
+    # 5. Verifica se a lista de contas está vazia antes de tentar percorrê-la
     if not contas:
         print("Nenhuma conta cadastrada ainda.")
+    # Se houver contas, percorre cada linha retornada pela base de dados
     else:
         for conta in contas:
+            # Imprime os dados formatados usando os índices das colunas da tabela:
             print(f"ID: {conta[0]} | Devedor: {conta[1]} | Vencimento: {conta[2]} | Valor: R$ {conta[3]:.2f} | Status: {conta[4]}")
             valor_total += conta[3]#Aqui se faz a atribuição e somatoria
     print(f"valor total = R$ {valor_total:.2f}")#Aqui o valor se atualiza caso some ou diminua mais
